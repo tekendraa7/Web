@@ -1,51 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head lang="en">
+       <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Internet Explorer compatibility -->
+    <meta name="description" content="This is a description of the web page"> <!-- Description for search engines -->
+    <meta name="keywords" content="HTML, CSS, JavaScript"> <!-- Keywords for search engines -->
+    <meta name="author" content="Your Name"> <!-- Author name -->
         <title>Tekendra</title>
     </head>
-    <body><table border="1">
-  <!-- Caption -->
-  <caption>Employee Information</caption>
+    <body>
+       <h1> <centre> My Portfollio</centre>  </h1>
+<form action="/submit" method="post">
+    <!-- Text input for username -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br><br>
 
-  <!-- Table Header -->
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Salary</th>
-    </tr>
-  </thead>
+    <!-- Password input -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+     <label for="email">Email: </label>
+     <input type="text" id="email" name="email" required>
+     <br><br>
+    <!-- Radio buttons for gender -->
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+    <br><br>
 
-  <!-- Table Body -->
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Alice</td>
-      <td>Developer</td>
-      <td>$80,000</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Bob</td>
-      <td>Designer</td>
-      <td>$70,000</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Carol</td>
-      <td>Manager</td>
-      <td>$90,000</td>
-    </tr>
-  </tbody>
-
-  <!-- Table Footer -->
-  <tfoot>
-    <tr>
-      <td colspan="3">Total Employees</td>
-      <td>3</td>
-    </tr>
-  </tfoot>
-</table>
+    <!-- Submit button -->
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>

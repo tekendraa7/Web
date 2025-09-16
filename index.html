@@ -1,51 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head lang="en">
-  <meta charset="UTF-8"> <!-- Character encoding -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
-  <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Internet Explorer compatibility -->
-  <meta name="description" content="This is a description of the web page"> <!-- Description for search engines -->
-  <meta name="keywords" content="HTML, CSS, JavaScript"> <!-- Keywords for search engines -->
-  <meta name="author" content="Your Name"> <!-- Author name -->
-  <title>Tekendra</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tekendra Bhandari | Portfolio</title>
 </head>
 
 <body>
-  <h1>
-    <centre> My Portfollio</centre>
-  </h1>
-  <a href="https://portfolio-tekendraas-projects.vercel.app/" target="blank" style="text-align: center;"> My Website
-  </a><br>
-  <br>
-  <img
-    src="https://portfolio-tekendraas-projects.vercel.app/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F182990458%3Fv%3D4&w=256&q=75"
-    alt="Developer" width="500" height="500">
 
-  <form action="/submit" method="post">
-    <!-- Text input for username -->
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <br><br>
+    <!-- Header / Hero -->
+    <header>
+        <h1>Tekendra Bhandari</h1>
+        <p>Computer Engineering Student • Cybersecurity & AI Enthusiast</p>
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#projects">Projects</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </header><br>
+    <!-- My Website -->
+    <section id="Photo">
+        <a href="https://portfolio-tekendraas-projects.vercel.app/" target="blank" style="text-align: center;"> My
+            Website
+        </a><br>
+        <br>
+        <img src="https://portfolio-tekendraas-projects.vercel.app/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F182990458%3Fv%3D4&w=256&q=75"
+            alt="Developer" width="500" height="500">
+    </section><br>
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I’m a Computer Engineering student at Far Western University, Nepal.
+            Passionate about cybersecurity, AI/ML-based stock market analysis. I love exploring Linux, networking, and building
+            interactive applications.
+        </p>
+    </section>
 
-    <!-- Password input -->
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <br><br>
-    <label for="email">Email: </label>
-    <input type="text" id="email" name="email" required>
-    <br><br>
-    <!-- Radio buttons for gender -->
-    <label>Gender:</label>
-    <input type="radio" id="male" name="gender" value="male">
-    <label for="male">Male</label>
-    <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label>
-    <br><br>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li><strong>Code Cracker: Hacking Wars</strong> – A puzzle cybersecurity game (in progress).</li>
+            <li><strong>NEPSE Demo Trading</strong> – A virtual trading site with live Nepal Stock Exchange data.</li>
+            <li><strong>Personal Finance & Task App</strong> – Flutter app for expense tracking and to-dos.</li>
+        </ul>
+    </section>
 
-    <!-- Submit button -->
-    <input type="submit" value="Submit">
-  </form>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:tekendrabhandaari68@hmail.com">tekendrabhandari68@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/tekendraa7" target="_blank">github</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/tekendraa7" target="_blank">LinkedIn</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Tekendra Bhandari. All rights reserved.</p>
+    </footer>
+
 </body>
 
 </html>

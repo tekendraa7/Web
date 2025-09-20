@@ -6,3 +6,11 @@ header {
 section {
     color: rgb(54, 38, 190);
 }
+.container {
+    display: flex;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+}
+#box {
+    background-color: blue;
+}

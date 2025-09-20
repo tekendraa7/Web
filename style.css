@@ -1,3 +1,10 @@
+* {
+    background-color: rgb(8, 175, 175);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 header {
     color: rgb(255, 11, 44);
     background-color: rgb(255, 29, 142);
@@ -13,4 +20,21 @@ section {
 }
 #box {
     background-color: blue;
+}
+h1 {
+    color: red;
+}
+h2 {
+    color: orange;
+}
+h3 {
+    color: yellow;
+}
+button {
+    background-color: green;    
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;    
 }

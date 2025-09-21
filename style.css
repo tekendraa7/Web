@@ -45,9 +45,13 @@ p {
     font-variant-emoji: emoji;
 }
 div {
+    height: 100px;
+    width: 100px;
     background-color: pink;
-    margin: 100px;
+    margin: 10px;
     border-style: solid;
-    border-width: 5px;
+    border-width: 2px;
+    border-radius: 50%;
     border-color: black;
+    text-align: center ;
 }

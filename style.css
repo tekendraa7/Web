@@ -44,3 +44,10 @@ p {
     text-decoration: wavy underline;
     font-variant-emoji: emoji;
 }
+div {
+    background-color: pink;
+    margin: 100px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+}

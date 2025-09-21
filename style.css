@@ -42,4 +42,5 @@ button {
 p {
     color: purple;
     text-decoration: wavy underline;
+    font-variant-emoji: emoji;
 }

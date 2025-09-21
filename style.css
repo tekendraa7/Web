@@ -23,6 +23,7 @@ section {
 }
 h1 {
     color: red;
+    text-align: center;
 }
 h2 {
     color: orange;
@@ -37,4 +38,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;    
+}
+p {
+    color: purple;
+    text-decoration: wavy underline;
 }

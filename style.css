@@ -31,30 +31,17 @@ h2 {
 h3 {
     color: yellow;
 }
-button {
-    background-color: green;    
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;    
-}
 p {
     color: purple;
     text-decoration: wavy underline;
     font-variant-emoji: emoji;
 }
-div {
-    height: 100px;
-    width: 100px;
-    background-color: pink;
-    margin: 10px;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 50%;
-    border-color: black;
-    text-align: center ;
-}
-#navbar { 
+
+#navbar {
+    background-color: black;
     
 }
+button {
+    background-color: greenyellow;
+}
+   

@@ -40,7 +40,7 @@ p {
 #navbar {
     background-color: black;
     height: 60px;
-    
+    margin: auto;
 }
 button {
     background-color: greenyellow;
@@ -50,5 +50,5 @@ button {
 }
 a {
     margin: 150px;
-    
+    text-decoration: none;
 }

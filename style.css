@@ -65,6 +65,7 @@ a {
     align-items: center; /* Vertically center items */
 }
 div {
+    color: yellow;
     height: 100px;
     width: 100px;
     background-color: rgb(5, 170, 170);
@@ -77,6 +78,7 @@ div {
 }
 div:hover {
     background-color: rgb(5, 170, 5);
+    color: rgb(0, 247, 255);
 }
 div:active {
     background-color: rgb(255, 7, 243);

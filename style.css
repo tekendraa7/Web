@@ -83,6 +83,8 @@ div:hover {
     color: rgb(0, 247, 255);
     transform: rotate(360deg);
     transform: translate(200px, 200px);
+    transform: skew(20deg, 20deg);
+    
 }
 div:active {
     background-color: rgb(255, 7, 243);

@@ -13,11 +13,7 @@ header {
 section {
     color: rgb(54, 38, 190);
 }
-.container {
-    display: flex;
-    justify-content: center; /* Horizontally center items */
-    align-items: center; /* Vertically center items */
-}
+
 #box {
     background-color: blue;
 }
@@ -51,4 +47,12 @@ button {
 a {
     margin: 150px;
     text-decoration: none;
+}
+.ll {
+    height: 200px;
+    width: 200px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
 }

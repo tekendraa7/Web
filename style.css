@@ -64,6 +64,17 @@ a {
     justify-content: center; /* Horizontally center items */
     align-items: center; /* Vertically center items */
 }
+div {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(5, 170, 170);
+    display: flex;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
 div:hover {
     background-color: rgb(5, 170, 5);
 }

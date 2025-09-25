@@ -14,8 +14,14 @@
 
 }
 .logo {
-    background-image: url();
+    background-image: url("logo.png");
     background-size: cover;
     height: 50px;
     width: 100%;
 }
+.border {
+    border: 2px solid transparent;
+}
+.border:hover {
+    border: 2px solid white;
+}   

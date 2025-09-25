@@ -8,6 +8,7 @@
     background-color: #0F1111;
     color: white;
     display: flex;
+    align-items: center;
 }
 .nav-logo {
     height : 50px;
@@ -32,4 +33,9 @@
 }
 span{
   font-size: 1rem;
+    margin-left: 3px;
+}
+.add-icon {
+    display: flex;
+    align-items: center;
 }

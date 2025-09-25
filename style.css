@@ -51,7 +51,15 @@ a {
 .ll {
     height: 200px;
     width: 200px;
-    background-color: lightgray;
+    background-color: rgb(170, 5, 5);
+    display: flex;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+}
+.bb {
+    height: 200px;
+    width: 200px;
+    background-color: rgb(5, 5, 170);
     display: flex;
     justify-content: center; /* Horizontally center items */
     align-items: center; /* Vertically center items */

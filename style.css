@@ -64,3 +64,9 @@ a {
     justify-content: center; /* Horizontally center items */
     align-items: center; /* Vertically center items */
 }
+div:hover {
+    background-color: rgb(5, 170, 5);
+}
+div:active {
+    background-color: rgb(255, 7, 243);
+}

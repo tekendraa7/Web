@@ -1,5 +1,5 @@
 * {
-    background-color: rgb(24, 2, 2);
+    background-color: rgb(226, 153, 153);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -75,10 +75,13 @@ div {
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
+    transform: rotatez(1000000000000deg);
+    
 }
 div:hover {
     background-color: rgb(5, 170, 5);
     color: rgb(0, 247, 255);
+    transform: rotate(360deg);
 }
 div:active {
     background-color: rgb(255, 7, 243);

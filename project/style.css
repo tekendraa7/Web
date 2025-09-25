@@ -79,4 +79,7 @@ span {
     display: flex;
     font-size: 1.2rem;
     background-color: #f79618;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
 }

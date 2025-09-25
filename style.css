@@ -79,15 +79,8 @@ a {
     /* Vertically center items */
 }
 
-div {
-    color: yellow;
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    border: 20px solid #FFE66D;
-    border-top: 20px solid #4ECDC4;
-    animation: color 2s ease-in-out infinite normal;
-}
+
+
 div:hover {
     background-color: rgb(5, 170, 5);
     color: rgb(0, 247, 255);
@@ -96,4 +89,17 @@ div:hover {
 }
 div:active {
     background-color: rgb(255, 7, 243);
+}
+div {
+    color: yellow;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(5, 170, 170);
+    display: flex;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    
+    transition-timing-function: ease-in-out;
+    transform: rotatez(10000deg);
+    
 }

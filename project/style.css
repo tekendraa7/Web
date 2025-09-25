@@ -7,6 +7,7 @@
     height: 60px;
     background-color: #0F1111;
     color: white;
+    display: flex;
 }
 .nav-logo {
     height : 50px;
@@ -25,3 +26,10 @@
 .border:hover {
     border: 1.5px solid white;
 }   
+.add-first {
+    color: #cccccc;
+    font-size: 0.85rem;
+}
+span{
+  font-size: 1rem;
+}

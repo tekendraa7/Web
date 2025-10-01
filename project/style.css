@@ -4,6 +4,29 @@
     border: border-box;
 }
 
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffd166;
+            --dark: #1a1a2e;
+            --darker: #16213e;
+            --light: #f8f9fa;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 .navbar {
     height: 60px;
     background-color: #0F1111;

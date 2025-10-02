@@ -107,3 +107,12 @@ span {
     border-bottom-right-radius: 5px;
     color: black;
 }
+
+.cube {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 10s infinite linear;
+    margin: 100px auto;
+}

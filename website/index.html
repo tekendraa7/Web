@@ -1,0 +1,1201 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>A Complete Cybersecurity Roadmap for Aspiring Penetration Testers and Security Engineers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Crimson Text', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#0f172a',
+                        'secondary': '#1e293b',
+                        'accent': '#3b82f6',
+                        'muted': '#64748b',
+                        'surface': '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .backdrop-blur {
+            backdrop-filter: blur(8px);
+        }
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 280px;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid #e2e8f0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        .section-spacing {
+            padding: 4rem 0;
+        }
+        .phase-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+        .phase-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .citation-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .citation-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body class="font-sans text-primary bg-surface">
+    <!-- Fixed Table of Contents -->
+    <nav class="toc-fixed">
+      <div class="mb-8">
+        <h3 class="font-serif text-xl font-semibold text-primary mb-4">Table of Contents</h3>
+      </div>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="#executive-summary" class="citation-link hover:text-accent transition-colors">Executive Summary</a>
+        </li>
+        <li>
+          <a href="#phase-1" class="citation-link hover:text-accent transition-colors">Phase 1: Foundational IT &amp; Cybersecurity</a>
+          <ul class="ml-4 mt-1 space-y-1 text-xs text-muted">
+            <li><a href="#phase-1-concepts" class="hover:text-accent transition-colors">Concepts to Learn</a></li>
+            <li><a href="#phase-1-hands-on" class="hover:text-accent transition-colors">Hands-On Skills</a></li>
+            <li><a href="#phase-1-tools" class="hover:text-accent transition-colors">Essential Tools</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#phase-2" class="citation-link hover:text-accent transition-colors">Phase 2: Intermediate Networking &amp; Security</a>
+          <ul class="ml-4 mt-1 space-y-1 text-xs text-muted">
+            <li><a href="#phase-2-concepts" class="hover:text-accent transition-colors">Concepts to Learn</a></li>
+            <li><a href="#phase-2-hands-on" class="hover:text-accent transition-colors">Hands-On Skills</a></li>
+            <li><a href="#phase-2-tools" class="hover:text-accent transition-colors">Essential Tools</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#phase-3" class="citation-link hover:text-accent transition-colors">Phase 3: Operating Systems Deep Dive</a>
+          <ul class="ml-4 mt-1 space-y-1 text-xs text-muted">
+            <li><a href="#phase-3-concepts" class="hover:text-accent transition-colors">Concepts to Learn</a></li>
+            <li><a href="#phase-3-hands-on" class="hover:text-accent transition-colors">Hands-On Skills</a></li>
+            <li><a href="#phase-3-tools" class="hover:text-accent transition-colors">Essential Tools</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#phase-4" class="citation-link hover:text-accent transition-colors">Phase 4: Application Security &amp; Web Technologies</a>
+          <ul class="ml-4 mt-1 space-y-1 text-xs text-muted">
+            <li><a href="#phase-4-concepts" class="hover:text-accent transition-colors">Concepts to Learn</a></li>
+            <li><a href="#phase-4-hands-on" class="hover:text-accent transition-colors">Hands-On Skills</a></li>
+            <li><a href="#phase-4-tools" class="hover:text-accent transition-colors">Essential Tools</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#phase-5" class="citation-link hover:text-accent transition-colors">Phase 5: Cryptography &amp; Security Protocols</a>
+          <ul class="ml-4 mt-1 space-y-1 text-xs text-muted">
+            <li><a href="#phase-5-concepts" class="hover:text-accent transition-colors">Concepts to Learn</a></li>
+            <li><a href="#phase-5-hands-on" class="hover:text-accent transition-colors">Hands-On Skills</a></li>
+            <li><a href="#phase-5-tools" class="hover:text-accent transition-colors">Essential Tools</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#phase-6" class="citation-link hover:text-accent transition-colors">Phase 6: Penetration Testing Methodologies</a>
+          <ul class="ml-4 mt-1 space-y-1 text-xs text-muted">
+            <li><a href="#phase-6-concepts" class="hover:text-accent transition-colors">Concepts to Learn</a></li>
+            <li><a href="#phase-6-hands-on" class="hover:text-accent transition-colors">Hands-On Skills</a></li>
+            <li><a href="#phase-6-tools" class="hover:text-accent transition-colors">Essential Tools</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#phase-7" class="citation-link hover:text-accent transition-colors">Phase 7: Project-Based Learning &amp; Portfolio</a>
+          <ul class="ml-4 mt-1 space-y-1 text-xs text-muted">
+            <li><a href="#phase-7-concepts" class="hover:text-accent transition-colors">Advanced Concepts</a></li>
+            <li><a href="#phase-7-hands-on" class="hover:text-accent transition-colors">Portfolio Projects</a></li>
+            <li><a href="#phase-7-tools" class="hover:text-accent transition-colors">Professional Development</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0">
+          <img src="https://kimi-web-img.moonshot.cn/img/blog.goinglobal.com/efe8cb07a65e19273222bd2e524303b5d1880212.jpg" alt="Cybersecurity digital landscape with network connections" class="w-full h-full object-cover opacity-20" size="wallpaper" aspect="wide" query="cybersecurity network background" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/60"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-4 sm:px-6 py-16">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[70vh]">
+            <!-- Main Title -->
+            <div class="lg:col-span-7">
+              <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold leading-tight mb-6 text-shadow">
+                <em class="text-accent">Mastering</em> Cybersecurity
+              </h1>
+              <p class="text-base sm:text-lg lg:text-xl xl:text-2xl mb-8 text-blue-100 leading-relaxed">
+                A comprehensive 104-week roadmap for aspiring penetration testers and security engineers
+              </p>
+              <div class="flex flex-wrap gap-4 text-sm">
+                <span class="bg-accent/20 px-3 py-1 sm:px-4 sm:py-2 rounded-full backdrop-blur">
+                  <i class="fas fa-clock mr-2"></i>5-6 hours/week
+                </span>
+                <span class="bg-accent/20 px-3 py-1 sm:px-4 sm:py-2 rounded-full backdrop-blur">
+                  <i class="fas fa-dollar-sign mr-2"></i>Free/Low-cost
+                </span>
+                <span class="bg-accent/20 px-3 py-1 sm:px-4 sm:py-2 rounded-full backdrop-blur">
+                  <i class="fas fa-graduation-cap mr-2"></i>Beginner to Advanced
+                </span>
+              </div>
+            </div>
+
+            <!-- Executive Summary Card -->
+            <div class="lg:col-span-5">
+              <div id="executive-summary" class="bg-white/10 backdrop-blur rounded-2xl p-4 sm:p-6 lg:p-8 border border-white/20">
+                <h2 class="font-serif text-xl sm:text-2xl font-semibold mb-4">
+                  <i class="fas fa-compass text-accent mr-3"></i>Executive Summary
+                </h2>
+                <div class="space-y-4 text-sm leading-relaxed">
+                  <p>This comprehensive cybersecurity roadmap provides a structured, <strong>104-week learning path</strong> for computer engineering students aspiring to careers in penetration testing and security engineering.</p>
+
+                  <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div class="bg-white/10 rounded-lg p-3">
+                      <h4 class="font-semibold text-accent mb-2">Target Audience</h4>
+                      <p class="text-xs">3rd-semester computer engineering students with basic networking knowledge</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-3">
+                      <h4 class="font-semibold text-accent mb-2">Time Commitment</h4>
+                      <p class="text-xs">5-6 hours per week over 2 years</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-3">
+                      <h4 class="font-semibold text-accent mb-2">Cost Focus</h4>
+                      <p class="text-xs">Free and low-cost resources only</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-3">
+                      <h4 class="font-semibold text-accent mb-2">Career Goals</h4>
+                      <p class="text-xs">Penetration testing and security engineering</p>
+                    </div>
+                  </div>
+
+                  <p class="mt-4 text-blue-100">The roadmap progresses through <strong>seven distinct phases</strong>, each building upon the previous, from foundational IT concepts to advanced penetration testing methodologies and portfolio development.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase 1: Foundational IT &amp; Cybersecurity Knowledge -->
+      <section id="phase-1" class="section-spacing bg-white">
+        <div class="container mx-auto px-6">
+          <div class="phase-card rounded-2xl p-8 mb-8">
+            <div class="flex items-center mb-6">
+              <div class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <span class="font-bold">1</span>
+              </div>
+              <div>
+                <h2 class="font-serif text-3xl font-bold text-primary">Phase 1: Foundational IT &amp; Cybersecurity Knowledge</h2>
+                <p class="text-muted">Weeks 1-12 • Building the Cornerstone</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div class="lg:col-span-2">
+                <div id="phase-1-concepts" class="mb-8">
+                  <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Concepts to Learn</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fas fa-desktop mr-2"></i>Core IT Fundamentals</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• Computer system components</li>
+                        <li>• Hardware architecture</li>
+                        <li>• Virtualization basics</li>
+                        <li>• System performance factors</li>
+                      </ul>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fas fa-server mr-2"></i>Operating Systems</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• Linux CLI mastery</li>
+                        <li>• Windows administration</li>
+                        <li>• PowerShell fundamentals</li>
+                        <li>• File system navigation</li>
+                      </ul>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fas fa-network-wired mr-2"></i>Network Fundamentals</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• OSI &amp; TCP/IP models</li>
+                        <li>• Common protocols (HTTP, DNS)</li>
+                        <li>• Network security concepts</li>
+                        <li>• Firewall &amp; IDS basics</li>
+                      </ul>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fas fa-shield-alt mr-2"></i>Cybersecurity Fundamentals</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• CIA Triad principles</li>
+                        <li>• Threat types and malware</li>
+                        <li>• Security controls</li>
+                        <li>• Risk assessment basics</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="phase-1-hands-on" class="mb-8">
+                  <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Hands-On Skills Development</h3>
+                  <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                      <div class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center mt-1">
+                        <i class="fas fa-terminal text-sm"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold mb-1">System Navigation &amp; Configuration</h4>
+                        <p class="text-sm text-muted">Master command-line operations in Windows and Linux environments, configure network settings, and manage user permissions.</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <div class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center mt-1">
+                        <i class="fas fa-search text-sm"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold mb-1">Network Traffic Analysis</h4>
+                        <p class="text-sm text-muted">Use Wireshark to capture and analyze network traffic, identify protocols, and detect suspicious patterns.</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <div class="bg-accent text-white rounded-full w-8 h-8 flex items-center justify-center mt-1">
+                        <i class="fas fa-code text-sm"></i>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold mb-1">Scripting Basics</h4>
+                        <p class="text-sm text-muted">Write simple automation scripts in Python, Bash, and PowerShell for security tasks and system administration.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="phase-1-tools">
+                <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Essential Tools</h3>
+                <div class="space-y-3">
+                  <div class="bg-surface p-4 rounded-lg border-l-4 border-accent">
+                    <h4 class="font-semibold text-accent mb-2">Wireshark</h4>
+                    <p class="text-sm text-muted">Network protocol analyzer for traffic inspection</p>
+                  </div>
+                  <div class="bg-surface p-4 rounded-lg border-l-4 border-accent">
+                    <h4 class="font-semibold text-accent mb-2">Nmap</h4>
+                    <p class="text-sm text-muted">Network discovery and security auditing</p>
+                  </div>
+                  <div class="bg-surface p-4 rounded-lg border-l-4 border-accent">
+                    <h4 class="font-semibold text-accent mb-2">OpenVAS</h4>
+                    <p class="text-sm text-muted">Vulnerability scanner for security assessments</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-primary/5 rounded-lg">
+              <h3 class="font-serif text-lg font-semibold mb-4 text-secondary">Recommended Resources</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="font-semibold text-accent mb-2">Free Online Courses</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• <a href="https://www.cybrary.it/career-path/foundations" class="citation-link">Cybrary&#39;s IT &amp; Cybersecurity Foundations</a>
+                      <a href="https://brilliancesecuritymagazine.com/cybersecurity/cybrary-intros-free-access-cybersecurity-skills-training/" class="text-xs text-muted ml-1">[104]</a>
+                    </li>
+                    <li>• <a href="https://www.paloaltonetworks.com/cyberpedia/free-cybersecurity-education-courses" class="citation-link">Palo Alto Network Security Fundamentals</a>
+                      <a href="https://www.paloaltonetworks.com/cyberpedia/free-cybersecurity-education-courses" class="text-xs text-muted ml-1">[111]</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-accent mb-2">Hands-On Practice</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Virtual labs on <a href="https://www.cybrary.it/career-path" class="citation-link">Cybrary platform</a>
+                      <a href="https://www.cybrary.it/career-path" class="text-xs text-muted ml-1">[102]</a>
+                    </li>
+                    <li>• <a href="https://www.credly.com/org/cybrary/badge/career-path-it-and-cybersecurity-foundations" class="citation-link">Digital badge via Credly</a>
+                      <a href="https://www.credly.com/org/cybrary/badge/career-path-it-and-cybersecurity-foundations" class="text-xs text-muted ml-1">[103]</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase 2: Intermediate Networking &amp; Core Security Concepts -->
+      <section id="phase-2" class="section-spacing bg-surface">
+        <div class="container mx-auto px-6">
+          <div class="phase-card rounded-2xl p-8 mb-8">
+            <div class="flex items-center mb-6">
+              <div class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <span class="font-bold">2</span>
+              </div>
+              <div>
+                <h2 class="font-serif text-3xl font-bold text-primary">Phase 2: Intermediate Networking &amp; Core Security Concepts</h2>
+                <p class="text-muted">Weeks 13-24 • Deepening Technical Expertise</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div id="phase-2-concepts">
+                <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Advanced Concepts</h3>
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-semibold text-accent mb-2"><i class="fas fa-layer-group mr-2"></i>OSI Model Mastery</h4>
+                    <p class="text-sm text-muted">In-depth analysis of all seven layers, protocol operations, and troubleshooting frameworks using Wireshark for packet-level inspection.</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-semibold text-accent mb-2"><i class="fas fa-sitemap mr-2"></i>Advanced IP Addressing</h4>
+                    <p class="text-sm text-muted">Subnetting, supernetting, CIDR notation, and efficient IP scheme design for complex network topologies.</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-semibold text-accent mb-2"><i class="fas fa-route mr-2"></i>Routing &amp; Switching</h4>
+                    <p class="text-sm text-muted">Dynamic routing protocols (OSPF, EIGRP), VLAN implementation, and layer 3 switching concepts.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="phase-2-hands-on">
+                <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Practical Implementation</h3>
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-semibold text-accent mb-2">Network Simulation</h4>
+                    <p class="text-sm text-muted">Use GNS3 or Packet Tracer to design and implement complex network topologies with multiple subnets and routing protocols.</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-semibold text-accent mb-2">Firewall Configuration</h4>
+                    <p class="text-sm text-muted">Master pfSense platform for creating and managing firewall rules, NAT configuration, and VPN setup.</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-semibold text-accent mb-2">Intrusion Detection</h4>
+                    <p class="text-sm text-muted">Configure Snort/Suricata IDS, create custom detection rules, and analyze network traffic for malicious patterns.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="phase-2-tools" class="mt-8">
+              <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Security Infrastructure Tools</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-network-wired text-3xl text-accent mb-3"></i>
+                  <h4 class="font-semibold mb-2">GNS3 / Packet Tracer</h4>
+                  <p class="text-xs text-muted">Network simulation and design</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-fire text-3xl text-accent mb-3"></i>
+                  <h4 class="font-semibold mb-2">pfSense</h4>
+                  <p class="text-xs text-muted">Enterprise firewall platform</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-exclamation-triangle text-3xl text-accent mb-3"></i>
+                  <h4 class="font-semibold mb-2">Snort / Suricata</h4>
+                  <p class="text-xs text-muted">Network intrusion detection</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Continue with remaining phases... -->
+      <!-- For brevity, I'll include Phase 3 and then provide the complete structure -->
+
+      <!-- Phase 3: Operating Systems Deep Dive -->
+      <section id="phase-3" class="section-spacing bg-white">
+        <div class="container mx-auto px-6">
+          <div class="phase-card rounded-2xl p-8 mb-8">
+            <div class="flex items-center mb-6">
+              <div class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <span class="font-bold">3</span>
+              </div>
+              <div>
+                <h2 class="font-serif text-3xl font-bold text-primary">Phase 3: Operating Systems Deep Dive</h2>
+                <p class="text-muted">Weeks 25-36 • Mastering Linux &amp; Windows</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div class="space-y-6">
+                <div id="phase-3-concepts">
+                  <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">OS Mastery</h3>
+                  <div class="space-y-3">
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fab fa-linux mr-2"></i>Linux System Administration</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• Advanced command-line operations</li>
+                        <li>• File system hierarchy and permissions</li>
+                        <li>• Process and service management</li>
+                        <li>• Shell scripting for automation</li>
+                      </ul>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fab fa-windows mr-2"></i>Windows System Internals</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• Active Directory administration</li>
+                        <li>• Registry and Group Policy</li>
+                        <li>• PowerShell automation</li>
+                        <li>• Windows security model</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-6">
+                <div id="phase-3-hands-on">
+                  <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Practical Skills</h3>
+                  <div class="space-y-4">
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2">System Hardening</h4>
+                      <p class="text-sm text-muted">Implement security configurations, disable unnecessary services, and apply best practices for system security.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2">Log Analysis &amp; Monitoring</h4>
+                      <p class="text-sm text-muted">Configure system logging, analyze security events, and set up basic monitoring systems.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="phase-3-tools">
+                  <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Essential OS Tools</h3>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-surface p-4 rounded-lg text-center">
+                      <i class="fab fa-linux text-3xl text-accent mb-2"></i>
+                      <h4 class="font-semibold text-sm">Kali Linux</h4>
+                      <p class="text-xs text-muted">Security-focused distribution</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg text-center">
+                      <i class="fab fa-windows text-3xl text-accent mb-2"></i>
+                      <h4 class="font-semibold text-sm">PowerShell</h4>
+                      <p class="text-xs text-muted">Windows automation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Complete the remaining phases following the same pattern -->
+      <!-- Phase 4: Application Security &amp; Web Technologies -->
+      <section id="phase-4" class="section-spacing bg-surface">
+        <div class="container mx-auto px-6">
+          <div class="phase-card rounded-2xl p-8">
+            <div class="flex items-center mb-6">
+              <div class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <span class="font-bold">4</span>
+              </div>
+              <div>
+                <h2 class="font-serif text-3xl font-bold text-primary">Phase 4: Application Security &amp; Web Technologies</h2>
+                <p class="text-muted">Weeks 37-48 • Web Application Pentesting</p>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">OWASP Top 10 Focus</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-code text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">SQL Injection</h4>
+                  <p class="text-xs text-muted">Database attacks</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-crosshairs text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">XSS</h4>
+                  <p class="text-xs text-muted">Cross-site scripting</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-unlock text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">Broken Auth</h4>
+                  <p class="text-xs text-muted">Authentication flaws</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-cog text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">Misconfig</h4>
+                  <p class="text-xs text-muted">Security settings</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-database text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">Data Exposure</h4>
+                  <p class="text-xs text-muted">Sensitive data</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="phase-4-tools" class="mt-8">
+              <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Web Security Toolkit</h3>
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-lg">
+                  <i class="fas fa-eye text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm mb-1">Burp Suite</h4>
+                  <p class="text-xs text-muted">Web proxy &amp; scanner</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg">
+                  <i class="fas fa-bug text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm mb-1">OWASP ZAP</h4>
+                  <p class="text-xs text-muted">Free web app scanner</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg">
+                  <i class="fas fa-database text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm mb-1">SQLMap</h4>
+                  <p class="text-xs text-muted">SQL injection tool</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg">
+                  <i class="fas fa-flask text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm mb-1">WebGoat</h4>
+                  <p class="text-xs text-muted">Vulnerable web app</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase 5: Cryptography &amp; Security Protocols -->
+      <section id="phase-5" class="section-spacing bg-white">
+        <div class="container mx-auto px-6">
+          <div class="phase-card rounded-2xl p-8">
+            <div class="flex items-center mb-6">
+              <div class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <span class="font-bold">5</span>
+              </div>
+              <div>
+                <h2 class="font-serif text-3xl font-bold text-primary">Phase 5: Cryptography &amp; Security Protocols</h2>
+                <p class="text-muted">Weeks 49-60 • Encryption &amp; Secure Communications</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div class="lg:col-span-2">
+                <div id="phase-5-concepts" class="mb-8">
+                  <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Cryptographic Fundamentals</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fas fa-key mr-2"></i>Encryption Types</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• Symmetric (AES, DES)</li>
+                        <li>• Asymmetric (RSA, ECC)</li>
+                        <li>• Hybrid encryption systems</li>
+                        <li>• Key management principles</li>
+                      </ul>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fas fa-signature mr-2"></i>Hashing &amp; Signatures</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• SHA family algorithms</li>
+                        <li>• Digital signature creation</li>
+                        <li>• Message authentication</li>
+                        <li>• Integrity verification</li>
+                      </ul>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fas fa-certificate mr-2"></i>PKI &amp; Certificates</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• Certificate authorities</li>
+                        <li>• X.509 certificate format</li>
+                        <li>• Certificate revocation</li>
+                        <li>• Chain of trust</li>
+                      </ul>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2"><i class="fas fa-lock mr-2"></i>Security Protocols</h4>
+                      <ul class="text-sm text-muted space-y-1">
+                        <li>• TLS/SSL for web security</li>
+                        <li>• SSH for remote access</li>
+                        <li>• IPSec for VPNs</li>
+                        <li>• VPN technologies</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div id="phase-5-hands-on">
+                  <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Practical Cryptography</h3>
+                  <div class="space-y-4">
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2">OpenSSL Operations</h4>
+                      <p class="text-sm text-muted">Encrypt/decrypt files, generate keys, create certificates, and analyze cryptographic operations.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2">TLS Analysis</h4>
+                      <p class="text-sm text-muted">Use Wireshark to capture and analyze TLS handshakes, certificate exchanges, and encrypted traffic.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg">
+                      <h4 class="font-semibold text-accent mb-2">VPN Configuration</h4>
+                      <p class="text-sm text-muted">Set up OpenVPN servers, configure client connections, and troubleshoot VPN tunnels.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase 6: Penetration Testing Methodologies &amp; Tools -->
+      <section id="phase-6" class="section-spacing bg-surface">
+        <div class="container mx-auto px-6">
+          <div class="phase-card rounded-2xl p-8">
+            <div class="flex items-center mb-6">
+              <div class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <span class="font-bold">6</span>
+              </div>
+              <div>
+                <h2 class="font-serif text-3xl font-bold text-primary">Phase 6: Penetration Testing Methodologies &amp; Tools</h2>
+                <p class="text-muted">Weeks 61-72 • Professional Pentesting Skills</p>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Penetration Testing Lifecycle</h3>
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-search text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">Recon</h4>
+                  <p class="text-xs text-muted">Information gathering</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-crosshairs text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">Scanning</h4>
+                  <p class="text-xs text-muted">Network discovery</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-bug text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">Exploitation</h4>
+                  <p class="text-xs text-muted">Vulnerability use</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-arrow-up text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">Post-Exploit</h4>
+                  <p class="text-xs text-muted">Privilege escalation</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center">
+                  <i class="fas fa-file-alt text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm">Reporting</h4>
+                  <p class="text-xs text-muted">Documentation</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="phase-6-tools" class="mt-8">
+              <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Professional Pentesting Toolkit</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-lg">
+                  <i class="fas fa-rocket text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm mb-1">Metasploit</h4>
+                  <p class="text-xs text-muted">Exploitation framework</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg">
+                  <i class="fas fa-key text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm mb-1">Mimikatz</h4>
+                  <p class="text-xs text-muted">Credential harvesting</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg">
+                  <i class="fas fa-map text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm mb-1">BloodHound</h4>
+                  <p class="text-xs text-muted">AD relationship mapping</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg">
+                  <i class="fas fa-terminal text-2xl text-accent mb-2"></i>
+                  <h4 class="font-semibold text-sm mb-1">Cobalt Strike</h4>
+                  <p class="text-xs text-muted">Red team operations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase 7: Project-Based Learning &amp; Portfolio Development -->
+      <section id="phase-7" class="section-spacing bg-white">
+        <div class="container mx-auto px-6">
+          <div class="phase-card rounded-2xl p-8">
+            <div class="flex items-center mb-6">
+              <div class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <span class="font-bold">7</span>
+              </div>
+              <div>
+                <h2 class="font-serif text-3xl font-bold text-primary">Phase 7: Project-Based Learning &amp; Portfolio Development</h2>
+                <p class="text-muted">Weeks 73-104 • Capstone Projects &amp; Professional Readiness</p>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Capstone Project Ideas</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-surface p-6 rounded-lg">
+                  <h4 class="font-semibold text-accent mb-3"><i class="fas fa-server mr-2"></i>Multi-Service Security Assessment</h4>
+                  <p class="text-sm text-muted mb-3">Conduct comprehensive security testing of a complex application with web, API, and database components.</p>
+                  <div class="text-xs text-muted">
+                    <span class="bg-accent/20 px-2 py-1 rounded">8-12 weeks</span>
+                    <span class="ml-2">Skills: Integration, reporting, advanced testing</span>
+                  </div>
+                </div>
+                <div class="bg-surface p-6 rounded-lg">
+                  <h4 class="font-semibold text-accent mb-3"><i class="fas fa-robot mr-2"></i>Automated Vulnerability Pipeline</h4>
+                  <p class="text-sm text-muted mb-3">Build a CI/CD integrated vulnerability management system with automated scanning and reporting.</p>
+                  <div class="text-xs text-muted">
+                    <span class="bg-accent/20 px-2 py-1 rounded">10-14 weeks</span>
+                    <span class="ml-2">Skills: Automation, DevSecOps, scripting</span>
+                  </div>
+                </div>
+                <div class="bg-surface p-6 rounded-lg">
+                  <h4 class="font-semibold text-accent mb-3"><i class="fas fa-cloud mr-2"></i>Cloud Security Assessment</h4>
+                  <p class="text-sm text-muted mb-3">Evaluate AWS/Azure/GCP environment security, identify misconfigurations, and recommend improvements.</p>
+                  <div class="text-xs text-muted">
+                    <span class="bg-accent/20 px-2 py-1 rounded">6-8 weeks</span>
+                    <span class="ml-2">Skills: Cloud security, automation, reporting</span>
+                  </div>
+                </div>
+                <div class="bg-surface p-6 rounded-lg">
+                  <h4 class="font-semibold text-accent mb-3"><i class="fas fa-tools mr-2"></i>Custom Security Tool Development</h4>
+                  <p class="text-sm text-muted mb-3">Create a specialized security tool or extension for existing frameworks to solve specific testing challenges.</p>
+                  <div class="text-xs text-muted">
+                    <span class="bg-accent/20 px-2 py-1 rounded">8-10 weeks</span>
+                    <span class="ml-2">Skills: Programming, security concepts, UX</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="phase-7-tools" class="mt-8">
+              <h3 class="font-serif text-xl font-semibold mb-4 text-secondary">Professional Portfolio Development</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-surface p-6 rounded-lg">
+                  <i class="fab fa-github text-3xl text-accent mb-3"></i>
+                  <h4 class="font-semibold mb-2">GitHub Portfolio</h4>
+                  <p class="text-sm text-muted">Create public repositories for all projects, include detailed documentation, and showcase code quality.</p>
+                </div>
+                <div class="bg-surface p-6 rounded-lg">
+                  <i class="fas fa-blog text-3xl text-accent mb-3"></i>
+                  <h4 class="font-semibold mb-2">Technical Blog</h4>
+                  <p class="text-sm text-muted">Write about your learning journey, project challenges, and cybersecurity insights to demonstrate expertise.</p>
+                </div>
+                <div class="bg-surface p-6 rounded-lg">
+                  <i class="fas fa-certificate text-3xl text-accent mb-3"></i>
+                  <h4 class="font-semibold mb-2">Certifications</h4>
+                  <p class="text-sm text-muted">Document completed courses, earned badges, and prepare for industry certifications like OSCP.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-primary/5 rounded-lg">
+              <h3 class="font-serif text-lg font-semibold mb-4 text-secondary">Career Preparation Resources</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold text-accent mb-2">Advanced Learning Platforms</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• TryHackMe &amp; Hack The Box advanced paths</li>
+                    <li>• SANS free resources and webcasts</li>
+                    <li>• Cybersecurity blogs and podcasts</li>
+                    <li>• GitHub security tool repositories</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-accent mb-2">Professional Development</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Open-source project contributions</li>
+                    <li>• Capture The Flag competitions</li>
+                    <li>• Technical writing and blogging</li>
+                    <li>• Networking with security community</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer with additional resources and citations -->
+      <!-- ========== FREE RESOURCES SECTION (add right before the old footer) ========== -->
+<section id="free-resources" class="py-16 bg-surface">
+  <div class="container mx-auto px-6">
+    <h2 class="font-serif text-3xl font-bold text-center text-primary mb-12">
+      <i class="fas fa-link text-accent mr-3"></i>Free Resource Starter-Pack
+    </h2>
+
+    <!-- PHASE 1 -->
+    <div class="mb-10">
+      <h3 class="font-serif text-xl font-semibold text-secondary mb-4">Phase 1 – Foundations</h3>
+      <div class="grid gap-4">
+        <a href="https://www.cybrary.it/career-path/foundations" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-play-circle text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Cybrary Foundations (videos + labs)</p>
+            <p class="text-xs text-muted">Full 12-week intro course</p>
+          </div>
+        </a>
+        <a href="https://www.netacad.com/courses/cybersecurity/introduction-cybersecurity" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-certificate text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Cisco NetAcad – Intro to Cybersecurity</p>
+            <p class="text-xs text-muted">Free certificate</p>
+          </div>
+        </a>
+        <a href="https://wcu.edu.az/uploads/files/Cyber%20Security%20Essentials%20(%20PDFDrive%20).pdf" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-file-pdf text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">“Cyber Security Essentials” PDF</p>
+            <p class="text-xs text-muted">Offline textbook</p>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/c/professormesser" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fab fa-youtube text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Professor Messer SY0-601 Playlist</p>
+            <p class="text-xs text-muted">YouTube</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="mb-10">
+      <h3 class="font-serif text-xl font-semibold text-secondary mb-4">Phase 2 – Networking & Core Security</h3>
+      <div class="grid gap-4">
+        <a href="https://www.gns3.com" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-network-wired text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">GNS3 Network Simulator</p>
+            <p class="text-xs text-muted">Virtual Cisco labs</p>
+          </div>
+        </a>
+        <a href="https://www.pfsense.org/download" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-fire text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">pfSense Firewall VM</p>
+            <p class="text-xs text-muted">Enterprise-grade, free</p>
+          </div>
+        </a>
+        <a href="https://www.subnettingquestions.com" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-calculator text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Subnetting Practice</p>
+            <p class="text-xs text-muted">Drills & calculator</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/OSo1XpahxyU" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fab fa-youtube text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">NetworkChuck – OSI Model Deep Dive</p>
+            <p class="text-xs text-muted">YouTube</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="mb-10">
+      <h3 class="font-serif text-xl font-semibold text-secondary mb-4">Phase 3 – Operating Systems Deep Dive</h3>
+      <div class="grid gap-4">
+        <a href="https://kali.training/downloads/Kali-Linux-Revealed.pdf" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-file-pdf text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">“Kali Linux Revealed” PDF</p>
+            <p class="text-xs text-muted">Official 300-page guide</p>
+          </div>
+        </a>
+        <a href="https://www.tcm-sec.com/p/linux-for-hackers" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-play-circle text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">TCM “Linux for Hackers”</p>
+            <p class="text-xs text-muted">Free course</p>
+          </div>
+        </a>
+        <a href="https://overthewire.org/wargames/bandit/" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-flag text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">OverTheWire Bandit</p>
+            <p class="text-xs text-muted">34-level Linux CTF</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="mb-10">
+      <h3 class="font-serif text-xl font-semibold text-secondary mb-4">Phase 4 – Web Application Security</h3>
+      <div class="grid gap-4">
+        <a href="https://pdfdrive.com/web-application-hackers-handbook-d18384091.html" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-file-pdf text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">“Web Application Hacker’s Handbook” PDF</p>
+            <p class="text-xs text-muted">2nd edition</p>
+          </div>
+        </a>
+        <a href="https://github.com/digininja/DVWA" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fab fa-github text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">DVWA (Damn Vulnerable Web App)</p>
+            <p class="text-xs text-muted">Docker or direct download</p>
+          </div>
+        </a>
+        <a href="https://portswigger.net/web-security" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-graduation-cap text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">PortSwigger Web-Security Academy</p>
+            <p class="text-xs text-muted">Free labs & theory</p>
+          </div>
+        </a>
+        <a href="https://pwning.owasp-juice.shop" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-flask text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">OWASP Juice Shop</p>
+            <p class="text-xs text-muted">Modern vulnerable Node app</p>
+          </div>
+        </a>
+        <a href="https://portswigger.net/burp/communitydownload" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-download text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Burp Suite Community</p>
+            <p class="text-xs text-muted">Free download</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PHASE 5 -->
+    <div class="mb-10">
+      <h3 class="font-serif text-xl font-semibold text-secondary mb-4">Phase 5 – Cryptography & Protocols</h3>
+      <div class="grid gap-4">
+        <a href="https://youtube.com/playlist?list=PL8e3AEx7aHQ" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fab fa-youtube text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Christof Paar – Complete Crypto Lectures</p>
+            <p class="text-xs text-muted">24 hrs, YouTube</p>
+          </div>
+        </a>
+        <a href="https://www.feistyduck.com/library/openssl-cookbook.pdf" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-file-pdf text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">OpenSSL Cook-book PDF</p>
+            <p class="text-xs text-muted">70 pages</p>
+          </div>
+        </a>
+        <a href="https://www.crypto-textbook.com" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-book text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">“Understanding Cryptography” textbook</p>
+            <p class="text-xs text-muted">Slides & problems</p>
+          </div>
+        </a>
+        <a href="https://cf-assets.www.cloudflare.com/slt3/static/TLS-1.3-Comic.pdf" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-file-pdf text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Cloudflare TLS 1.3 Comic</p>
+            <p class="text-xs text-muted">Fun & accurate</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PHASE 6 -->
+    <div class="mb-10">
+      <h3 class="font-serif text-xl font-semibold text-secondary mb-4">Phase 6 – Penetration Testing & Tools</h3>
+      <div class="grid gap-4">
+        <a href="https://youtube.com/playlist?list=PLBfufR7vyJJ7k1H4QnlSRAdT-JZc-8a1s" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fab fa-youtube text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">TCM “Practical Ethical Hacking”</p>
+            <p class="text-xs text-muted">YouTube mirror</p>
+          </div>
+        </a>
+        <a href="https://www.offensive-security.com/metasploit-unleashed/" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-rocket text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Metasploit Unleashed</p>
+            <p class="text-xs text-muted">Free complete course</p>
+          </div>
+        </a>
+        <a href="https://www.vulnhub.com" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-download text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">VulnHub VMs</p>
+            <p class="text-xs text-muted">300+ vulnerable boxes</p>
+          </div>
+        </a>
+        <a href="https://academy.hackthebox.com" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-graduation-cap text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">HackTheBox Academy</p>
+            <p class="text-xs text-muted">Free tier, 30+ modules</p>
+          </div>
+        </a>
+        <a href="https://tryhackme.com/path/outline/beginner" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-flag text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">TryHackMe Beginner Path</p>
+            <p class="text-xs text-muted">Free rooms</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ALWAYS-OPEN LIBRARIES -->
+    <div class="mb-10">
+      <h3 class="font-serif text-xl font-semibold text-secondary mb-4">Always-Open Libraries & References</h3>
+      <div class="grid gap-4">
+        <a href="https://opensecuritytraining.info" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-university text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">OpenSecurityTraining Archive</p>
+            <p class="text-xs text-muted">Whole university curriculum</p>
+          </div>
+        </a>
+        <a href="https://github.com/enaqx/awesome-pentest" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fab fa-github text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">Awesome-Pentest GitHub List</p>
+            <p class="text-xs text-muted">Curated tools & blogs</p>
+          </div>
+        </a>
+        <a href="https://ctftime.org" target="_blank" rel="noopener" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition">
+          <i class="fas fa-trophy text-accent text-xl mr-4"></i>
+          <div>
+            <p class="font-semibold">CTFtime.org</p>
+            <p class="text-xs text-muted">Global CTF calendar</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- tip box -->
+    <div class="bg-accent/10 border-l-4 border-accent p-4 rounded">
+      <p class="text-sm text-primary">
+        <i class="fas fa-lightbulb text-accent mr-2"></i>
+        <strong>Pro-tip:</strong> Right-click → “Bookmark All Tabs” after you open a batch of links; revisit each resource only when you reach the matching roadmap week so you don’t drown in tabs!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== UPDATED FOOTER ========== -->
+<footer class="bg-primary text-white py-12">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-serif text-xl font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#phase-1" class="citation-link">Phase 1 Foundations</a></li>
+          <li><a href="#free-resources" class="citation-link">Free Resources</a></li>
+          <li><a href="https://github.com/enaqx/awesome-pentest" target="_blank" rel="noopener" class="citation-link">Awesome-Pentest GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-serif text-xl font-semibold mb-4">Keep Learning</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://ctftime.org" target="_blank" rel="noopener" class="citation-link">CTFtime – global CTF calendar</a></li>
+          <li><a href="https://opensecuritytraining.info" target="_blank" rel="noopener" class="citation-link">OpenSecurityTraining archive</a></li>
+          <li><a href="https://www.cybrary.it/career-path/foundations" target="_blank" rel="noopener" class="citation-link">Cybrary Foundations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-serif text-xl font-semibold mb-4">Community</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://www.reddit.com/r/netsec/" target="_blank" rel="noopener" class="citation-link">r/netsec</a></li>
+          <li><a href="https://www.reddit.com/r/cybersecurity/" target="_blank" rel="noopener" class="citation-link">r/cybersecurity</a></li>
+          <li><a href="https://tryhackme.com" target="_blank" rel="noopener" class="citation-link">TryHackMe</a></li>
+          <li><a href="https://hackthebox.com" target="_blank" rel="noopener" class="citation-link">Hack The Box</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-600 mt-8 pt-8 text-center text-sm">
+      <p>This roadmap and resource list is 100 % free and open-source. Share, fork, and improve it freely.</p>
+    </div>
+  </div>
+</footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-fixed a[href^="#"]');
+
+        function highlightActiveSection() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('font-semibold', 'text-accent');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('font-semibold', 'text-accent');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightActiveSection);
+        highlightActiveSection(); // Initial call
+    </script>
+  
+
+</body></html>
